@@ -1,0 +1,5 @@
+This component is going to help the user to perform:
+    CREATE - Create a new event.
+    UPDATE - Update an existing event.
+    DELETE - Delete an existing event.
+    READ - Read an existing event.
