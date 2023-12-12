@@ -7,7 +7,10 @@ const modalOkText = "Create Event";
 type Props = 
 {
     openModal: boolean,
-    setOpenModal: (a: boolean) => void
+    setOpenModal: (a: boolean) => void,
+    eventName: string,
+    description: string,
+    scheduledDate: Date
 }
 
 enum FromFieldNames
