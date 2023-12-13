@@ -2,7 +2,7 @@ import { endOfMonth, format, startOfMonth } from "date-fns";
 import { Typography } from 'antd';
 import style from "./style.module.css";
 
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 const daysOfWeek: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -32,8 +32,14 @@ export default function Calender()
                     }
                     {
                         daysOfMonth.map((currentDate, index) => 
-                            <div key={index} className={`${style["individualDate"]} ${dateOfToday.getDate() === +currentDate ? style["currentDate"] : ""}`}>
-                                <Title level={5}>{currentDate}</Title>
+                            <div key={index} className={style["individualDate"]}>
+                                {
+                                    dateOfToday.getDate() === +currentDate ? 
+                                    <div className={style["currentDate"]}>
+                                        <Text strong={true} >{currentDate}</Text>
+                                    </div> : 
+                                    <Title level={5}>{currentDate}</Title>
+                                }
                             </div>
                         )
                     }

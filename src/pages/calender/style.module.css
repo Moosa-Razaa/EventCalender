@@ -59,8 +59,13 @@
 
 .currentDate
 {
-    background-color: #D3D6DB;
-    box-shadow: 3px 3px 3px -1px #3A4750;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: rgba(190, 49, 68, 0.5);
 }
 
 .inidividualDay:hover
