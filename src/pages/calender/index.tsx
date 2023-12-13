@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { endOfMonth, format, startOfMonth } from "date-fns";
 import { Typography } from 'antd';
 import style from "./style.module.css";
 
@@ -8,8 +8,12 @@ const daysOfWeek: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thurs
 
 export default function Calender()
 {
-    const currentDate = new Date();
-    const monthAndYear = format(currentDate, "MMMM yyyy");
+    const dateOfToday = new Date();
+    const monthAndYear = format(dateOfToday, "MMMM yyyy");
+    const lastDateOfMonth = endOfMonth(dateOfToday).getDate();
+    const firstDayOfMonth = startOfMonth(dateOfToday).getDay();
+    const offsetForCalender = Array.from({length: firstDayOfMonth}, (_) => "-");
+    const daysOfMonth = [...offsetForCalender, ...Array.from({length: lastDateOfMonth}, (_, index) => (index + 1).toString())];
 
     return(
         <div className={style["mainCalenderDiv"]}>
@@ -19,10 +23,19 @@ export default function Calender()
                 </div>
             </header>
 
-            <main>       
+            <main className={style["main"]}>       
                 <div className={style["weekdaysGrid"]}>
                     {
-                        daysOfWeek.map((currentDay) => <div className={style["inidividualDay"]}>{currentDay}</div>)
+                        daysOfWeek.map((currentDay) => <div key={currentDay} className={style["inidividualDay"]}><Title level={3}>
+                            {currentDay}
+                        </Title></div>)
+                    }
+                    {
+                        daysOfMonth.map((currentDate, index) => 
+                            <div key={index} className={`${style["individualDate"]} ${dateOfToday.getDate() === +currentDate ? style["currentDate"] : ""}`}>
+                                <Title level={5}>{currentDate}</Title>
+                            </div>
+                        )
                     }
                 </div>
             </main>
