@@ -18,7 +18,16 @@
     box-shadow: 0 6px 12px -1px #3A4750;
 }
 
-.daysDiv
+.weekdaysGrid
+{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-top: 40px;
+    height: 4rem;
+}
+
+.inidividualDay
 {
     height: 100%;
     width: 100%;
@@ -30,7 +39,7 @@
     transition: all 0.5s;
 }
 
-.daysDiv:hover
+.inidividualDay:hover
 {
     background-color: #D3D6DB;
     box-shadow: 5px 6px 5px -1px #a6a8ac;
