@@ -1,7 +1,7 @@
 import style from "./style.module.css";
 import { endOfMonth, format, startOfMonth } from "date-fns";
 import { Typography } from "antd";
-import addNewEvent from "../../assets/addNewEvent.svg";
+import addNewEvent from "../../assets/newEvent.svg";
 
 const daysOfWeek: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const { Title, Text } = Typography;
@@ -49,12 +49,13 @@ export default function Calender()
                     </div>
                 </div>
                 <div className={style["horizontalDiv"]} />
-                <div className={style["addNewEvent"]}>
-                    <button className={style["addNewEventButton"]}>
-                        <img src={addNewEvent} alt="Add Event" className={style["addEventIcon"]} />
-                    </button>
-                    <Title level={5}>Add new event</Title>
+                <div className={style["eventsDiv"]}>
+                    <div className={style["eventsHeadingDiv"]}>
+                        <Title style={{ margin: 0, padding: 0}} level={4}>Scheduled Events</Title>
+                        <img className={style["addNewEventImage"]} src={addNewEvent} alt="Add new event" />
+                    </div>
                 </div>
+                <div className={style["horizontalDiv"]} />
             </div>
         </main>
     );
