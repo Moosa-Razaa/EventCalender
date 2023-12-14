@@ -1,5 +1,5 @@
 import { useState } from "react";
-import CreateEvent from "./create";
+import CreateEvent from "./structure";
 import { Button } from "antd";
 
 function Event()
@@ -9,7 +9,7 @@ function Event()
     return(
         <>
         <Button onClick={() => setOpenModal(true)}>Open Modal</Button>
-            <CreateEvent openModal={openModal} setOpenModal={setOpenModal} />
+            <CreateEvent openModal={openModal} setOpenModal={setOpenModal} eventName="" description="" scheduledDate={new Date()} />
         </>
     );
 }

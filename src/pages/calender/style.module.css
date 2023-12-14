@@ -1,0 +1,126 @@
+.mainCalenderDiv
+{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.calendarDiv
+{
+    height: 90%;
+    width: 65%;
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+    background-color: #333C4A;
+}
+
+.weekdaysGrid
+{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    margin-top: 40px;
+    height: 100%;
+}
+
+.individualDay
+{
+    height: 5.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.individualDate
+{
+    height: 3rem;
+    width: 100%;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.currentDateDiv
+{
+    height: 92%;
+    width: 25%;
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    background-color: #F6F7D3;
+}
+
+.currentDateInformationDiv
+{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    padding-left: 50px;
+}
+
+.verticalDiv
+{
+    width: 5px;
+    height: 50%;
+    background-color: #333C4A;
+    margin: 0 20px;
+    border-radius: 10px;
+}
+
+.monthYearDayOfWeekDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.horizontalDiv
+{
+    width: 100%;
+    height: 1px;
+    background-color: #333C4A;
+}
+
+.addNewEvent
+{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.addNewEventButton
+{
+    border-radius: 10px;
+    background-color: #F6F7D3;
+    border: none;
+    transition: all 0.7s;
+}
+
+.addNewEventButton:hover
+{
+    border-radius: 10px;
+    background-color: #F8FCEB;
+}
+
+.addEventIcon
+{
+    height: 200px;
+    width: 200px;
+    opacity: 50%;
+    transition: all 0.7s;
+}
+
+.addEventIcon:hover
+{
+    opacity: 100%;
+}
