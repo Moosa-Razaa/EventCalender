@@ -1,27 +1,20 @@
 .mainCalenderDiv
 {
-    padding: 5px;
-    height: 100%;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
 }
 
-.mainMonthAndYearHeading
+.calendarDiv
 {
-    width: 100%;
-    text-align: center;
-}
-
-.main
-{
-    height: 100%;
-}
-
-.mainHeaderDiv
-{
-    width: 100%;
-    background-color: #303841;
-    border: 1px solid #303841;
-    border-radius: 5px;
-    box-shadow: 0 6px 12px -1px #3A4750;
+    height: 90%;
+    width: 65%;
+    border-top-left-radius: 0.8rem;
+    border-bottom-left-radius: 0.8rem;
+    background-color: #333C4A;
 }
 
 .weekdaysGrid
@@ -33,43 +26,101 @@
     height: 100%;
 }
 
-.inidividualDay
+.individualDay
 {
-    height: 10rem;
+    height: 5.5rem;
     width: 100%;
-    border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px 6px 5px -1px #D3D6DB;
-    transition: all 0.5s;
 }
 
 .individualDate
 {
-    height: 6rem;
+    height: 3rem;
     width: 100%;
     border-radius: 12px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px 6px 5px -1px #D3D6DB;
-    transition: all 0.5s;
 }
 
-.currentDate
+.currentDateDiv
+{
+    height: 92%;
+    width: 25%;
+    border-top-right-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
+    background-color: #F6F7D3;
+}
+
+.currentDateInformationDiv
 {
     display: flex;
+    justify-content: start;
     align-items: center;
-    justify-content: center;
-    height: 3rem;
-    width: 3rem;
-    border-radius: 50%;
-    background-color: rgba(190, 49, 68, 0.5);
+    width: 100%;
+    height: 15%;
+    padding-left: 50px;
 }
 
-.inidividualDay:hover
+.verticalDiv
 {
-    background-color: #D3D6DB;
-    box-shadow: 5px 6px 5px -1px #a6a8ac;
+    width: 5px;
+    height: 50%;
+    background-color: #333C4A;
+    margin: 0 20px;
+    border-radius: 10px;
+}
+
+.monthYearDayOfWeekDiv
+{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+}
+
+.horizontalDiv
+{
+    width: 100%;
+    height: 1px;
+    background-color: #333C4A;
+}
+
+.addNewEvent
+{
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.addNewEventButton
+{
+    border-radius: 10px;
+    background-color: #F6F7D3;
+    border: none;
+    transition: all 0.7s;
+}
+
+.addNewEventButton:hover
+{
+    border-radius: 10px;
+    background-color: #F8FCEB;
+}
+
+.addEventIcon
+{
+    height: 200px;
+    width: 200px;
+    opacity: 50%;
+    transition: all 0.7s;
+}
+
+.addEventIcon:hover
+{
+    opacity: 100%;
 }
