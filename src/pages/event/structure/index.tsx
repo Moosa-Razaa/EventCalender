@@ -1,5 +1,6 @@
 import { Button, DatePicker, Form, Input, Modal } from "antd";
 import style from "./createEvent.module.css";
+import { EventDetails, EventStatus } from "../utils";
 
 const modalTitle = "Create New Event";
 const modalOkText = "Create Event";
@@ -8,9 +9,8 @@ type Props =
 {
     openModal: boolean,
     setOpenModal: (a: boolean) => void,
-    eventName: string,
-    description: string,
-    scheduledDate: Date
+    eventDetails: EventDetails,
+    eventStatus: EventStatus
 }
 
 enum FromFieldNames
@@ -27,7 +27,7 @@ const layout = {
     wrapperCol: { span: 16 },
 };
 
-function CreateEvent({openModal, setOpenModal} : Props)
+function Event({openModal, setOpenModal} : Props)
 {
     const [form] = Form.useForm();
 
@@ -73,4 +73,4 @@ function CreateEvent({openModal, setOpenModal} : Props)
     );
 }
 
-export default CreateEvent;
+export default Event;
