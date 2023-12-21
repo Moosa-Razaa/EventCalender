@@ -9,9 +9,12 @@ type Props =
 {
     openModal: boolean,
     setOpenModal: (a: boolean) => void,
-    eventDetails: EventDetails,
-    eventStatus: EventStatus
-}
+} & ({
+    eventStatus: EventStatus.CREATE,
+} | {
+    eventStatus: Exclude<EventStatus, EventStatus.CREATE>,
+    eventDetails: EventDetails
+});
 
 enum FromFieldNames
 {
@@ -27,21 +30,39 @@ const layout = {
     wrapperCol: { span: 16 },
 };
 
-function Event({openModal, setOpenModal} : Props)
+function BaseEvent(props : Props)
 {
     const [form] = Form.useForm();
+
+    function InitializeValuesToForm()
+    {
+        if(props.eventStatus !== EventStatus.CREATE)
+        {
+            form.setFieldsValue({
+                [FromFieldNames.EVENTNAME]: props.eventDetails.eventName,
+                [FromFieldNames.DESCRIPTION]: props.eventDetails.description,
+                [FromFieldNames.SCHEDULEDDATE]: props.eventDetails.scheduledDate
+            });
+        }
+        else
+        {
+            form.resetFields();
+        }
+    }
+
+    InitializeValuesToForm();
 
     function ModalOnCancelHandler()
     {
         form.resetFields();
-        setOpenModal(false);
+        props.setOpenModal(false);
     }
 
     return(
         <Modal
             title={modalTitle}
             centered={true}
-            open={openModal}
+            open={props.openModal}
             onCancel={ModalOnCancelHandler}
             okText={modalOkText}
             width={750}
@@ -73,4 +94,4 @@ function Event({openModal, setOpenModal} : Props)
     );
 }
 
-export default Event;
+export default BaseEvent;

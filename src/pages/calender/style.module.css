@@ -90,18 +90,21 @@
 
 .addNewEvent
 {
-    width: 100%;
-    height: 40%;
+    width: 100% - 65px;
+    height: 3rem;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    padding-left: 50px;
 }
 
 .addNewEventButton
 {
+    height: 2rem;
+    width: 2rem;
     border-radius: 10px;
     background-color: #F6F7D3;
+    margin-right: 15px;
     border: none;
     transition: all 0.7s;
 }
@@ -114,8 +117,8 @@
 
 .addEventIcon
 {
-    height: 200px;
-    width: 200px;
+    height: 1.5rem;
+    width: 1.5rem;
     opacity: 50%;
     transition: all 0.7s;
 }
@@ -123,4 +126,17 @@
 .addEventIcon:hover
 {
     opacity: 100%;
+}
+
+.addNewEventLabel
+{
+    margin: 5px;
+}
+
+.eventsList
+{
+    width: 100%;
+    height: calc(85% - 2px - 4rem);
+    overflow-y: auto;
+    border: 1px solid #ccc;
 }

@@ -7,7 +7,7 @@ function Event()
 
     return(
         <>
-        <Button onClick={() => setOpenModal(true)}>Open Modal</Button>
+            <Button onClick={() => setOpenModal(true)}>Open Modal</Button>
         </>
     );
 }

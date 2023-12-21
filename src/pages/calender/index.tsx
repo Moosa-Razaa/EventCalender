@@ -1,13 +1,17 @@
 import style from "./style.module.css";
 import { endOfMonth, format, startOfMonth } from "date-fns";
-import { Typography } from "antd";
+import { List, Typography } from "antd";
 import addNewEvent from "../../assets/addNewEvent.svg";
+import { useState } from "react";
+import { EventDetails } from "../event/utils";
 
 const daysOfWeek: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const { Title, Text } = Typography;
 
 export default function Calender()
 {
+    const [allEvents, _] = useState<EventDetails[]>([]);
+
     const dateOfToday = new Date();
     const lastDateOfMonth = endOfMonth(dateOfToday).getDate();
     const firstDayOfMonth = startOfMonth(dateOfToday).getDay();
@@ -48,12 +52,26 @@ export default function Calender()
                         <Text strong>{currentDayOfWeek}</Text>
                     </div>
                 </div>
+                
                 <div className={style["horizontalDiv"]} />
+                
                 <div className={style["addNewEvent"]}>
-                    <button className={style["addNewEventButton"]}>
+                    <Text type="secondary">No Date Selected!</Text>
+                    <button className={style["addNewEventButton"]} title="Add new event">
                         <img src={addNewEvent} alt="Add Event" className={style["addEventIcon"]} />
                     </button>
-                    <Title level={5}>Add new event</Title>
+                </div>
+                
+                <div className={style["horizontalDiv"]} />
+                
+                <div className={style["eventsList"]}>
+                    <List
+                        size="small"
+                        dataSource={allEvents}
+                        header={<div>Events</div>}
+                        bordered={true}
+                        renderItem={(currentItem) => <List.Item>{currentItem.eventName}</List.Item>} 
+                    />
                 </div>
             </div>
         </main>
