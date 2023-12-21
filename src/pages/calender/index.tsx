@@ -8,9 +8,20 @@ import { EventDetails } from "../event/utils";
 const daysOfWeek: string[] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const { Title, Text } = Typography;
 
+const generateDummyEventDetails = (index: number): EventDetails => ({
+    eventName: `Event ${index + 1}`,
+    description: `Description for Event ${index + 1}`,
+    scheduledDate: new Date() // You can replace this with your desired date logic
+});
+  
+  // Create an array with 10 dummy EventDetails
+const dummyEventDetailsArray: EventDetails[] = Array.from({ length: 10 }, (_, index) =>
+    generateDummyEventDetails(index)
+);
+
 export default function Calender()
 {
-    const [allEvents, _] = useState<EventDetails[]>([]);
+    const [allEvents, _] = useState<EventDetails[]>(dummyEventDetailsArray);
 
     const dateOfToday = new Date();
     const lastDateOfMonth = endOfMonth(dateOfToday).getDate();
@@ -68,7 +79,7 @@ export default function Calender()
                     <List
                         size="small"
                         dataSource={allEvents}
-                        header={<div>Events</div>}
+                        header={<Title level={5}>Events</Title>}
                         bordered={true}
                         renderItem={(currentItem) => <List.Item>{currentItem.eventName}</List.Item>} 
                     />
